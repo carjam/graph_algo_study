@@ -164,7 +164,7 @@ class DirectedGraph:
                 continue
             seen.add(v)
             path = path + [v]
-            paths[v] = path if v in paths and len(path) < path[v] else path
+            paths[v] = path if v not in paths or len(path) < path[v] else path[v]
             if v == tgt:
                 return (distance, paths)
             
